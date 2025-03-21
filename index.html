@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Yaqdan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .book-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 90%;
+        }
+
+        .book {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+        }
+
+        img {
+            max-width: 150px;
+            max-height: 200px;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .book-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .book {
+                width: 90%;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Detail Buku  By Toko Yaqdan</h1>
+    <div class="book-container">
+        <div class="book" id="book1">
+            <p><strong>Judul Buku:</strong> <span id="title1">Sirah Nabawiyyah</span></p>
+            <p>Penulis: <span id="author1">shafiyyurrahman al mubarakfuri</span></p>
+            <p>Harga Buku: <span id="price1">Rp 180.000</span></p>
+            <img id="image1" src="" alt="Gambar Buku 1" style="display: none;">
+            <button onclick="showBook('book1')">Tampilkan Buku</button>
+        </div>
+        <div class="book" id="book2">
+            <p><strong>Judul Buku:</strong> <span id="title2">Saffinatun Najah</span></p>
+            <p>Penulis: <span id="author2">Salim Ibn Sumair al-Hadrami</span></p>
+            <p>Harga Buku: <span id="price2">Rp 160.000</span></p>
+            <img id="image2" src="" alt="Gambar Buku 2" style="display: none;">
+            <button onclick="showBook('book2')">Tampilkan Buku</button>
+        </div>
+    </div>
+
+    <script>
+        const books = {
+            book1: {
+                title: "Sirah Nabawiyyah",
+                author: "shafiyyurrahman al mubarakfuri",
+                price: "Rp 180.000",
+                image : "download (2).jpeg"
+            },
+            book2: {
+                title: "Saffinatun Najah",
+                author: "Salim Ibn Sumair al-Hadrami",
+                price: "Rp 160.000",
+                image: "download.jpeg"
+            }
+        };
+
+        function showBook(bookId) {
+            const book = books[bookId];
+            document.getElementById(`title${bookId === 'book1' ? 1 : 2}`).innerText = book.title;
+            document.getElementById(`author${bookId === 'book1' ? 1 : 2}`).innerText = book.author;
+            document.getElementById(`price${bookId === 'book1' ? 1 : 2}`).innerText = book.price;
+            document.getElementById(`image${bookId === 'book1' ? 1 : 2}`).src = book.image;
+            document.getElementById(`image${bookId === 'book1' ? 1 : 2}`).style.display = "block";
+        }
+    </script>
+</body>
+</html>
